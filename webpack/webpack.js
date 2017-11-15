@@ -11,7 +11,6 @@ module.exports = (app) => {
     app.use(devMiddleware(compile, {
         noInfo: false,
         quiet: false,
-        lazy: true,
         watchOptions: {
             aggregateTimeout: 300,
             poll: true
