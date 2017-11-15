@@ -4,10 +4,10 @@
 const webpack = require('webpack')
 const {devMiddleware, hotMiddleware} = require('koa-webpack-middleware')
 const config = require('./webpack.config')
-const compile = webpack(config)
+// const compile = webpack(config)
 
 module.exports = (app) => {
-
+    const compile = webpack(config)
     app.use(devMiddleware(compile, {
         noInfo: false,
         quiet: false,

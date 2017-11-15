@@ -9,12 +9,12 @@ module.exports = {
         'index': [
             'eventsource-polyfill',
             'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-            '../src/entry.js'
+            './src/entry.js'
         ]
     },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, '../dist/')
+        path: path.resolve(__dirname, 'dist/')
     },
     module: {
         rules: [
@@ -30,7 +30,7 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'stage-0']
                 },
-                include: path.resolve(__dirname, '../src/')
+                include: path.resolve(__dirname, 'src/')
             }
         ]
     },
