@@ -1,7 +1,7 @@
 
 'use strict'
 
-const default_conf = {}//require('./default.js')
+const default_conf = require('./default.js')
 
 const env = process.env.GGB_ENV
 let config = {}

@@ -14,5 +14,6 @@ module.exports = {
         httpOnly: true,
         signed: true,
         rolling: false
-    }
+    },
+    secret: 'dkWuwE%<oByY_|.>pE.3<1?=0gGhuy</>XwP1?P3A?4S3q%@dUtK99l=5Ck<tRN<mRsVB*Rg&Y^E3E/A<Wj4rqBryG^Yd%JX=ga8Vx||L6l7Ms=m?U<#^&q#pu8-o<)S'
 }

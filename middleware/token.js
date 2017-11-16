@@ -3,16 +3,14 @@
 
 const jwt = require('jsonwebtoken')
 
-const expire = 30 * 60
-
-const secret = '*#$xc9/5`0,=2X$%4/dYE_C_NyO59t>Qn#P<RBD$comwKNv|^.`(p7^O<P+|0GeJ'
+const config = require('../config')
 
 exports.getToken = async (params) => {
     return new Promise((resolve, reject) => {
         jwt.sign({
             data: JSON.stringify(params),
             algorithm: 'HS512'
-        }, secret, {expiresIn: expire}, (err, token) => {
+        }, config.secret, {expiresIn: config.expireTime}, (err, token) => {
             if (err) {
                 reject(err)
             } else {
@@ -24,7 +22,7 @@ exports.getToken = async (params) => {
 
 exports.verifyToken = async ({token}) => {
     return new Promise((resolve, reject) => {
-        jwt.verify(token, secret, {algorithm: 'HS512'}, (err, decoded) => {
+        jwt.verify(token, config.secret, {algorithm: 'HS512'}, (err, decoded) => {
             if (err) {
                 reject(err)
             } else {
