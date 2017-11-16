@@ -13,4 +13,8 @@ router.get('/api/getOrder', async (ctx) => {
     return await xcController.getOrder(ctx)
 })
 
+router.get('/api/getOrder', async (ctx) => {
+    return await xcController.getOrder(ctx)
+})
+
 module.exports = router
