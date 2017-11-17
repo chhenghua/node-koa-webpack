@@ -19,7 +19,6 @@ const getRouters = (routerList, path) => {
 }
 
 module.exports = (app) => {
-
     const routerList = getRouters([], routerPath)
     console.log('################ <Router load start .....> ##################')
     routerList.forEach( (file) => {

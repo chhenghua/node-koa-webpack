@@ -9,7 +9,7 @@ module.exports = {
         'index': [
             'eventsource-polyfill',
             'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-            './src/entry.js'
+            './src/entry.html'
         ]
     },
     output: {
@@ -27,10 +27,11 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
+                exclude: path.resolve(__dirname, 'node_modules'),
+                include: path.resolve(__dirname, 'src'),
                 query: {
                     presets: ['es2015', 'stage-0']
-                },
-                include: path.resolve(__dirname, 'src/')
+                }
             }
         ]
     },

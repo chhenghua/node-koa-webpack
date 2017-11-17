@@ -1,4 +1,5 @@
 const Koa = require('koa')
+const serve  = require('koa-static')
 const app = new Koa()
 
 const bodyParser = require('koa-bodyparser')
@@ -40,6 +41,10 @@ app.use(async (ctx, next) => {
     }
 })
 
+
+app.use(serve(__dirname + '../src'));
+
 routers(app)
 
 app.listen(3000)
+console.log('listening on port 3000')
