@@ -11,6 +11,8 @@ const paramsSign = require('./middleware/sign')
 const config = require('./config')
 const webpack = require('./webpack/webpack')
 
+app.use(serve('./src'))
+
 // 请求body解析
 app.use(bodyParser())
 
@@ -26,7 +28,9 @@ app.use(async (ctx, next) => {
     await next()
 })
 
-webpack(app)
+if (process.env.GGB_ENV === 'DEV') {
+    webpack(app)
+}
 
 // 错误处理
 app.use(async (ctx, next) => {
@@ -40,7 +44,6 @@ app.use(async (ctx, next) => {
         }
     }
 })
-
 
 app.use(serve('/src'));
 
