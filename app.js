@@ -45,8 +45,6 @@ app.use(async (ctx, next) => {
     }
 })
 
-app.use(serve('/src'));
-
 routers(app)
 
 app.listen(3000)
