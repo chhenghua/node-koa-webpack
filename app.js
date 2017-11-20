@@ -42,7 +42,7 @@ app.use(async (ctx, next) => {
 })
 
 
-app.use(serve(__dirname + '../src'));
+app.use(serve('/src'));
 
 routers(app)
 
