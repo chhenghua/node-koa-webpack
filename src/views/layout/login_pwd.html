@@ -1,0 +1,37 @@
+<div class="reg-main breadcrumb">
+    <ul class="tab">
+        <li ng-repeat="item in pwdMessage" ui-sref="{{ item.link }}" ui-sref-active="active">{{ item.name }}</li>
+    </ul>
+    <div class="reg-width">
+        <form class="ydm-reg" ng-submit="submit()" name="loginForm">
+            <div class="form-group inp">
+                <input type="text" class="form-control" placeholder="手机号/账号" AUTOCOMPLETE="off"
+                       ng-model="account"
+                       required
+                       ng-class="{true:'', false:'active'}[accounted]">
+            </div>
+            <div class="form-group inp">
+                <input type="password" class="form-control" placeholder="密码"
+                       ng-model="password"
+                       required
+                       ng-class="{true:'', false:'active'}[passworded]">
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group marginTB-md">
+                <div class="custom-checkbox">
+                    <input type="checkbox" id="chkRemember" ng-model="chkRemember" required>
+                    <label for="chkRemember"></label>
+                </div>
+                我已经阅读并同意
+                <a ng-click="agreement()" class="hover" style="cursor: pointer;">《服务条款》</a>
+            </div>
+            <div class="clearfix"></div>
+            <div class="marginTB-md">
+                <button type="submit" class="btn btn-success btn-block" style="padding: 10px;"
+                        ng-disabled="loginForm.$invalid">登 录
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

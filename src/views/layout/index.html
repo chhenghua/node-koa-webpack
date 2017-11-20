@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="row">
+    <div class="container-fluid ydm-login-bg">
+        <header class="reg-top">
+            <img src="images/top_logo.png" class="logo">
+        </header>
+        <div class="login-main">
+            <div ui-view="main"></div>
+        </div>
+        <footer class="ydm-footer text-center">
+            <div class="text-center marginTB-md reg-bottom overflow-hidden">
+                <a ng-repeat="item in alink" ui-sref="{{ item.link }}">{{ item.name }}</a>
+            </div>
+            <div class="clearfix"></div>
+            <p style="margin-top: 15px;">{{ tel }}</p>
+            <p>{{ ggb_v }}</p>
+        </footer>
+    </div>
+</div>

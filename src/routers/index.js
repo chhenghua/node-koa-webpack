@@ -10,7 +10,7 @@ var routerApp = angular.module('ydmApp', ['ui.router', 'oc.lazyLoad']);
  * @param  {[type]} $stateParams
  * @return {[type]}
  */
-routerApp.run(function($rootScope, $state, $stateParams) {
+routerApp.run(function ($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 });
@@ -23,27 +23,74 @@ routerApp.run(function($rootScope, $state, $stateParams) {
  * @param  {[type]} $urlRouterProvider
  * @return {[type]}
  */
-routerApp.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/login');
+routerApp.config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/login/pwd');
     $stateProvider
+        // 模板
         .state('login', {
             url: '/login',
             views: {
                 '': {
-                    templateUrl: 'views/layout/index.html'
-                },
-                'main@login': {
-                    templateUrl: 'views/layout/login.html',
+                    templateUrl: 'views/layout/index.html',
                     controller: 'loginCtrl as ctrl',
                 }
             },
             resolve: {
-                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        'js/regular.js',
-                        'controller/layout/login.js'
+                        'views/layout/index.js'
                     ]);
                 }]
+            }
+        })
+        // 密码登录
+        .state('login.pwd', {
+            url: '/pwd',
+            views: {
+                'main@login': {
+                    templateUrl: 'views/layout/login_pwd.html',
+                    controller: 'loginPwdCtrl as ctrl',
+                }
+            }
+        })
+        // 短信登录
+        .state('login.message', {
+            url: '/message',
+            views: {
+                'main@login': {
+                    templateUrl: 'views/layout/login_message.html',
+                    controller: 'loginMessageCtrl as ctrl',
+                }
+            }
+        })
+        // 注册
+        .state('login.reg', {
+            url: '/reg',
+            views: {
+                'main@login': {
+                    templateUrl: 'views/layout/reg.html',
+                    controller: 'loginRegCtrl as ctrl',
+                }
+            }
+        })
+        // 注册2
+        .state('login.reg2', {
+            url: '/reg2',
+            views: {
+                'main@login': {
+                    templateUrl: 'views/layout/reg2.html',
+                    controller: 'loginReg2Ctrl as ctrl',
+                }
+            }
+        })
+        // 忘记密码
+        .state('login.forgetPwd', {
+            url: '/forgetPwd',
+            views: {
+                'main@login': {
+                    templateUrl: 'views/layout/forget_pwd.html',
+                    controller: 'loginForgetPwdCtrl as ctrl',
+                }
             }
         })
 });

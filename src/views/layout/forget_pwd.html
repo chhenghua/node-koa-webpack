@@ -1,0 +1,36 @@
+<div class="reg-main breadcrumb">
+    <div class="title">忘记密码</div>
+    <div class="clearfix"></div>
+    <div class="reg-width">
+        <form class="ydm-reg" name="ydmForm" ng-submit="submit()">
+            <div class="form-group inp">
+                <input type="text" class="form-control" placeholder="请输入手机号"
+                       name="account"
+                       ng-model="account"
+                       required
+                       ng-class="{true:'', false:'active'}[accounted]">
+            </div>
+            <div class="form-group inp" style="border-bottom: none;">
+                <input type="text" class="form-control w187" style="border-bottom: 1px #ccc solid;" placeholder="请输入验证码"
+                       ng-model="code"
+                       required
+                       ng-class="{true:'', false:'active'}[codeed]">
+                <button type="button" class="btn btn-code" ng-click="cont()" ng-disabled="ydmForm.account.$invalid || paraevent" ng-bind="paracont">获取验证码</button>
+            </div>
+            <div class="form-group inp">
+                <input type="password" class="form-control" placeholder="请输入6-16位的新密码"
+                       ng-model="pwd1"
+                       required
+                       ng-class="{true:'', false:'active'}[pwd1ed]">
+            </div>
+            <div class="form-group inp">
+                <input type="password" class="form-control" placeholder="再次输入密码"
+                       ng-model="pwd2"
+                       ng-class="{true:'', false:'active'}[pwd2ed]">
+            </div>
+            <div class="marginTB-md">
+                <button type="submit" class="btn btn-success btn-block" style="padding: 10px;" ng-disabled="ydmForm.$invalid">确定修改</button>
+            </div>
+        </form>
+    </div>
+</div>
