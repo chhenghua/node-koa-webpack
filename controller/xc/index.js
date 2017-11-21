@@ -12,12 +12,12 @@ exports.apiTest = async (ctx) => {
     console.log('ctx........................')
     console.log(ctx.request.query)
 
-    // return await request.get({
-    //     url: `${config.host}/api/admin/ManagerStoreBossRegCode`,
-    //     form: {
-    //         account: '17688831541'
-    //     }
-    // })
+    return await request.get({
+        url: `${config.host}/api/admin/ManagerStoreBossRegCode`,
+        form: {
+            account: '17688831541'
+        }
+    })
 
 }
 

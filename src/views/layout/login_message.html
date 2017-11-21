@@ -17,9 +17,7 @@
                        ng-model="code"
                        required
                        ng-class="{true:'', false:'active'}[codeed]">
-                <button type="button" class="btn btn-code" ng-click="cont()"
-                        ng-disabled="codeForm.account.$invalid || paraevent" ng-bind="paracont">获取验证码
-                </button>
+                <count-down cont="cont" account="account" url="{{ url }}"></count-down>
             </div>
             <div class="form-group marginTB-lg">
                 <div class="custom-checkbox">
@@ -37,4 +35,5 @@
         </form>
     </div>
 </div>
+
 

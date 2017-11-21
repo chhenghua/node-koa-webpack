@@ -26,7 +26,7 @@ routerApp.run(function ($rootScope, $state, $stateParams) {
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/login/pwd');
     $stateProvider
-        // 模板
+        // 登录注册模板
         .state('login', {
             url: '/login',
             views: {
@@ -38,6 +38,7 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
+                        'js/regular.js',
                         'views/layout/index.js'
                     ]);
                 }]
@@ -47,7 +48,7 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         .state('login.pwd', {
             url: '/pwd',
             views: {
-                'main@login': {
+                'login@login': {
                     templateUrl: 'views/layout/login_pwd.html',
                     controller: 'loginPwdCtrl as ctrl',
                 }
@@ -57,7 +58,7 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         .state('login.message', {
             url: '/message',
             views: {
-                'main@login': {
+                'login@login': {
                     templateUrl: 'views/layout/login_message.html',
                     controller: 'loginMessageCtrl as ctrl',
                 }
@@ -67,7 +68,7 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         .state('login.reg', {
             url: '/reg',
             views: {
-                'main@login': {
+                'login@login': {
                     templateUrl: 'views/layout/reg.html',
                     controller: 'loginRegCtrl as ctrl',
                 }
@@ -77,7 +78,7 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         .state('login.reg2', {
             url: '/reg2',
             views: {
-                'main@login': {
+                'login@login': {
                     templateUrl: 'views/layout/reg2.html',
                     controller: 'loginReg2Ctrl as ctrl',
                 }
@@ -87,9 +88,28 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
         .state('login.forgetPwd', {
             url: '/forgetPwd',
             views: {
-                'main@login': {
+                'login@login': {
                     templateUrl: 'views/layout/forget_pwd.html',
                     controller: 'loginForgetPwdCtrl as ctrl',
+                }
+            }
+        })
+        // 主页模板
+        .state('main', {
+            url: '/main',
+            views: {
+                '': {
+                    templateUrl: 'views/layout/main.html'
+                }
+            }
+        })
+        // 首页
+        .state('main.home', {
+            url: '/home',
+            views: {
+                'main@main': {
+                    templateUrl: 'views/home/index.html',
+                    controller: 'indexCtrl as ctrl',
                 }
             }
         })
