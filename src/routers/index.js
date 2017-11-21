@@ -23,8 +23,9 @@ routerApp.run(function ($rootScope, $state, $stateParams) {
  * @param  {[type]} $urlRouterProvider
  * @return {[type]}
  */
-routerApp.config(function ($stateProvider, $urlRouterProvider) {
+routerApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/login/pwd');
+    $locationProvider.html5Mode(true);
     $stateProvider
         // 登录注册模板
         .state('login', {
@@ -38,7 +39,6 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             resolve: {
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        'js/regular.js',
                         'views/layout/index.js'
                     ]);
                 }]
@@ -99,17 +99,24 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/main',
             views: {
                 '': {
-                    templateUrl: 'views/layout/main.html'
+                    templateUrl: 'views/layout/main.html',
+                    controller: 'ydmController as ctrl',
                 }
+            },
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'views/layout/main.js'
+                    ]);
+                }]
             }
         })
         // 首页
         .state('main.home', {
             url: '/home',
             views: {
-                'main@main': {
-                    templateUrl: 'views/home/index.html',
-                    controller: 'indexCtrl as ctrl',
+                'main@home': {
+                    templateUrl: 'views/home/index.html'
                 }
             }
         })

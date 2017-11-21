@@ -1,0 +1,101 @@
+<header class="top-nav">
+    <div class="top-nav-inner">
+        <div class="nav-header">
+            <button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleSM">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- 用户信息 -->
+            <ul class="nav-notification pull-right">
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog fa-lg"></i></a>
+                    <span class="badge badge-danger bounceIn">1</span>
+                    <ul class="dropdown-menu dropdown-sm pull-right">
+                        <li class="user-avatar">
+                            <img src="{{userImg}}" alt="" class="img-circle">
+                            <div class="user-content">
+                                <h5 class="no-m-bottom">{{userName}}</h5>
+                                <div class="m-top-xs">
+                                    <a href="javascript:void(0)" ng-click="signOut()">退出</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a ui-sref="sercertSet">修改密码</a>
+                        </li>
+                        <li class="divider"></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- LOGO -->
+            <span class="brand" alt="引导美管理系统" ng-click="home()">
+				<img src="images/logo_top.png">
+			</span>
+        </div>
+        <div class="nav-container">
+            <button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleLG">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="pull-right m-right-sm">
+                <div class="user-block hidden-xs">
+                    <a href="javascript:void(0);" id="userToggle" data-toggle="dropdown">
+                        <img src="{{userImg}}" alt="{{userName}}" class="img-circle inline-block user-profile-pic">
+                        <div class="user-detail inline-block">
+                            {{userName}}
+                            <font ng-bind="headStoreName"></font>
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+                    </a>
+                    <div class="panel border dropdown-menu user-panel">
+                        <div class="panel-body paddingTB-sm">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)" ng-click="signOut()"><i class="fa fa-power-off fa-lg"></i><span class="m-left-xs">退出</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav-notification">
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="dropdown" ><i class="fa fa-envelope-o icon-18"></i></a>
+                        <span class="badge badge-info bounceIn animation-delay6 active" ng-if="unReadNum>0&&unReadNum<=99">{{unReadNum}}</span>
+                        <span class="badge badge-info bounceIn animation-delay6 active" ng-if="unReadNum>99">99+</span>
+                        <div class="pay-alert" ng-if="unHandelPayNum>0">
+                            您有{{unHandelPayNum}}条支付类消息未处理
+                        </div>
+                        <ul class="dropdown-menu notification dropdown-3 pull-right" >
+                            <li ng-if="unReadNum>0">
+                                <a href="javascript:void(0)">
+                                    <span class="m-left-xs">有{{unReadNum}}条未读</span>
+                                    <span class="pull-right" ng-click="readAll('')"><div class="read-btn">标记已读</div></span>
+                                </a>
+                            </li>
+                            <li ng-repeat="item in list" title="{{item.messageContentShot}}">
+                                <a ng-click="readMsg(item)">
+                                    <span class="notification-icon bg-danger red-dot pull-left mt5" ng-if="item.isRead===-1"></span>
+                                    <p class="m-left-sm fcontent">
+                                        <span ng-if="item.messageType==1">【系统消息】{{item.messageContentShot}}</span>
+                                        <span ng-if="item.messageType==2">【通知消息】{{item.messageContentShot}}</span>
+                                        <span ng-if="item.messageType==3">【项目订单】{{item.messageContentShot}}</span>
+                                        <span ng-if="item.messageType==4">【美丽金订单】{{item.messageContentShot}}</span>
+                                        <span ng-if="item.messageType==5">【商品订单】{{item.messageContentShot}}</span>
+                                    </p>
+                                    <span class="time font-normal">{{item.messageTime}}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="text-center fblue" ng-if="total>10" ng-click="readMore()">查看更多</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+

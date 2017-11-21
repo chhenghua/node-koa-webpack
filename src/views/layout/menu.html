@@ -1,0 +1,22 @@
+<aside class="sidebar-menu fixed">
+	<div class="sidebar-inner scrollable-sidebar">
+		<!-- 导航 -->
+		<div class="main-menu">
+			<ul class="accordion ng-cloak">
+				<li ng-repeat="item in menu" class="bg-palette{{item.id}}" ng-class="{true:'active',false:''}[funId==item.funid]">
+					<a style="cursor: pointer;" ng-click="menuSub(item)">
+						<span class="menu-content block">
+							<span class="menu-icon"><i class="block fa fa-{{item.icon}} fa-lg"></i></span>
+							<span class="text m-left-sm">{{item.name}}</span>
+							<span class="submenu-icon"></span>
+						</span>
+						<span class="menu-content-hover block">{{item.shortName}}</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="sidebar-fix-bottom clearfix">
+			Beauty Guide {{ggb_v}}
+		</div>
+	</div>
+</aside>
