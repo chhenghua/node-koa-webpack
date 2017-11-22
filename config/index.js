@@ -3,7 +3,7 @@
 
 const default_conf = require('./default.js')
 
-const env = process.env.GGB_ENV
+const env = '' //process.env.GGB_ENV
 let config = {}
 
 switch (env) {

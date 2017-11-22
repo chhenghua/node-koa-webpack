@@ -6,7 +6,7 @@ module.exports = {
         key: 'P)4.XW_CuFdXTXmA=0A|)UbF@?hlsob*Jv@ImSS^Ryb%GCj=9$yV!#KLe_gAq-Epp?ZD>Jku7da69W6b6PJvbEl#(a0vvJkj@h:cij6d-I&%q;&oed>#Waqw;4^5vYi>',
         iv: ''
     },
-    host: 'http://saas.ydm01.top',
+    host: 'http://192.168.183.128:9090',
     sessConfig: {
         key: 'koa:sess',
         maxAge: 30 * 24 * 60 * 60 * 1000,

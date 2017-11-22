@@ -24,7 +24,7 @@ exports.apiManagerStoreLoginCode = async (ctx) => {
     let api = await request.post({
         url: `${config.host}/api/admin/ManagerStoreLoginCode`,
         form: ctx.request.body
-    })
+    }, ctx)
     console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
     console.log(api)
     return api

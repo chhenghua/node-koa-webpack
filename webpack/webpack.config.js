@@ -9,7 +9,7 @@ module.exports = {
         'index': [
             'eventsource-polyfill',
             'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-            './src/entry.js'
+            './src/index.js'
         ]
     },
     output: {
