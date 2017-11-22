@@ -10,7 +10,11 @@ router.post('/api/admin/ManagerStorePWDLogin', async (ctx) => {
 
 //短信登录
 router.post('/api/admin/ManagerStoreLoginCode', async (ctx) => {
-    return await login.apiManagerStoreLoginCode(ctx)
+    let api = await login.apiManagerStoreLoginCode(ctx)
+    console.log('##########################################')
+    console.log(api)
+    return api
+
 })
 
 

@@ -15,8 +15,11 @@ exports.apiManagerStorePWDLogin = async (ctx) => {
 
 //短信登录
 exports.apiManagerStoreLoginCode = async (ctx) => {
-    return await request.post({
+    let api = await request.post({
         url: `${config.host}/api/admin/ManagerStoreLoginCode`,
         form: ctx.request.body
     })
+    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
+    console.log(api)
+    return api
 }
