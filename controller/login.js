@@ -19,6 +19,18 @@ exports.apiManagerStorePWDLogin = async (ctx) => {
     return loginRlt
 }
 
+// 退出
+exports.ManagerStoreSignOut = async (ctx) => {
+    const rlt = await request.post({
+        url: `${config.host}/api/admin/ManagerStorePWDLogin`,
+        form: body
+    }, ctx)
+
+    // 删除session
+    delete ctx.session.web_token
+    return rlt
+}
+
 //短信登录
 exports.apiManagerStoreLoginCode = async (ctx) => {
     let api = await request.post({
