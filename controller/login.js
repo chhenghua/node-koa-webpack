@@ -37,7 +37,17 @@ exports.apiManagerStoreLoginCode = async (ctx) => {
         url: `${config.host}/api/admin/ManagerStoreLoginCode`,
         form: ctx.request.body
     }, ctx)
-    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
-    console.log(api)
     return api
+}
+
+// 微信绑定账号
+exports.ManagerStoreWxBind = async (ctx) => {
+    const rlt = await request.post({
+        url: `${config.host}/api/admin/ManagerStoreWxBind`,
+        form: body
+    }, ctx)
+
+    // 将从后端拿到的token写到session
+    ctx.session.web_token = rlt.token
+    return rlt
 }

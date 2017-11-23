@@ -22,5 +22,10 @@ router.post('/api/admin/ManagerStoreLoginCode', async (ctx) => {
 
 })
 
+// 微信绑定账号
+router.post('/api/admin/ManagerStoreWxBind', async (ctx) => {
+    return await login.ManagerStoreWxBind(ctx)
+
+})
 
 module.exports = router
