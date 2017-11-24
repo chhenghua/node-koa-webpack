@@ -5,12 +5,30 @@ const config = require('../config')
 
 //密码登录
 exports.apiManagerStorePWDLogin = async (ctx) => {
-    const query = ctx.request.query
+    // const query = ctx.request.query
     const body = ctx.request.body
-    return await request.post({
+
+    const loginRlt = await request.post({
         url: `${config.host}/api/admin/ManagerStorePWDLogin`,
         form: body
     })
+
+    // 将从后端拿到的token写到session
+    ctx.session.web_token = loginRlt.token
+
+    return loginRlt
+}
+
+// 退出
+exports.ManagerStoreSignOut = async (ctx) => {
+    const rlt = await request.post({
+        url: `${config.host}/api/admin/ManagerStorePWDLogin`,
+        form: body
+    }, ctx)
+
+    // 删除session
+    delete ctx.session.web_token
+    return rlt
 }
 
 //短信登录
@@ -18,8 +36,18 @@ exports.apiManagerStoreLoginCode = async (ctx) => {
     let api = await request.post({
         url: `${config.host}/api/admin/ManagerStoreLoginCode`,
         form: ctx.request.body
-    })
-    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
-    console.log(api)
+    }, ctx)
     return api
+}
+
+// 微信绑定账号
+exports.ManagerStoreWxBind = async (ctx) => {
+    const rlt = await request.post({
+        url: `${config.host}/api/admin/ManagerStoreWxBind`,
+        form: body
+    }, ctx)
+
+    // 将从后端拿到的token写到session
+    ctx.session.web_token = rlt.token
+    return rlt
 }

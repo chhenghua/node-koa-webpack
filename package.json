@@ -7,11 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "build": "./node_modules/.bin/webpack --config webpack/webpack.config.js",
-    "dev": "./node_modules/.bin/nodemon app.js --config nodemon.json"
+    "dev": "./node_modules/.bin/nodemon app.js --config nodemon.json",
+    "bower": "./node_modules/.bin/bower install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bower": "^1.8.2",
     "crypto-js": "^3.1.9-1",
     "jsonwebtoken": "^8.1.0",
     "koa": "^2.4.1",

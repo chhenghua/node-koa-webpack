@@ -17,6 +17,7 @@ app.use(serve('./src'))
 app.use(bodyParser())
 
 // session
+app.keys = ['im a session keys']
 app.use(session(config.sessConfig, app))
 
 // 日志模块
