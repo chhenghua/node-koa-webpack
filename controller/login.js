@@ -51,3 +51,36 @@ exports.ManagerStoreWxBind = async (ctx) => {
     ctx.session.web_token = rlt.token
     return rlt
 }
+
+exports.lotteryLogin = async (ctx) => {
+    const rlt = await request.post({
+        url: `${config.host}/api/lottery_manage/login`,
+        form: body
+    }, ctx)
+
+    // 将从后端拿到的token写到session
+    ctx.session.web_token = rlt.token
+    return rlt
+}
+
+exports.mpLogin = async (ctx) => {
+    const rlt = await request.post({
+        url: `${config.host}/api/mp/login`,
+        form: body
+    }, ctx)
+
+    // 将从后端拿到的token写到session
+    ctx.session.web_token = rlt.token
+    return rlt
+}
+
+exports.mpLoginOut = async (ctx) => {
+    const rlt = await request.post({
+        url: `${config.host}/api/mp/logout`,
+        form: body
+    }, ctx)
+
+    // 将从后端拿到的token写到session
+    delete ctx.session.web_token
+    return rlt
+}

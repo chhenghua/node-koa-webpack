@@ -28,4 +28,16 @@ router.post('/api/admin/ManagerStoreWxBind', async (ctx) => {
 
 })
 
+router.post('/api/lottery_manage/login', async (ctx) => {
+    return await login.lotteryLogin(ctx)
+})
+
+router.post('/api/mp/login', async (ctx) => {
+    return await login.mpLogin(ctx)
+})
+
+router.post('/api/mp/logout', async (ctx) => {
+    return await login.mpLoginOut(ctx)
+})
+
 module.exports = router
