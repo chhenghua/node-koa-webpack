@@ -81,6 +81,26 @@ exports.mpLoginOut = async (ctx) => {
     }, ctx)
 
     // 将从后端拿到的token写到session
-    delete ctx.session.web_token
+    // delete ctx.session.web_token
     return rlt
+}
+
+exports.invitationLogin = async (ctx) => {
+    const rlt = await request.post({
+        url: `${config.host}/api/invitation/login`,
+        form: body
+    }, ctx)
+
+    // 将从后端拿到的token写到session
+    ctx.session.web_token = rlt.token
+    return rlt
+}
+
+exports.phoneLogin = async (ctx) => {
+    // return await request.post({
+    //     url: `${config.host}/api/ydm_xc_new/phone_login`,
+    //     form: body
+    // }, ctx)
+
+    ctx.proxy('${config.host}/api/invitation/login')
 }

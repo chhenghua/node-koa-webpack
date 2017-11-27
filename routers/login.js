@@ -40,4 +40,12 @@ router.post('/api/mp/logout', async (ctx) => {
     return await login.mpLoginOut(ctx)
 })
 
+router.post('/api/invitation/login', async (ctx) => {
+    return await login.invitationLogin(ctx)
+})
+
+router.post('/api/ydm_xc_new/phone_login', async (ctx) => {
+    return await login.phoneLogin(ctx)
+})
+
 module.exports = router
