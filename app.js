@@ -9,9 +9,10 @@ const logger = require('koa-logger')
 const routers = require('./routers')
 const paramsSign = require('./middleware/sign')
 const config = require('./config')
-const webpack = require('./webpack/webpack')
+// const webpack = require('./webpack/webpack')
 
 app.use(serve('./src'))
+app.use(serve('./dist'))
 
 // 请求body解析
 app.use(bodyParser())
@@ -29,9 +30,9 @@ app.use(async (ctx, next) => {
     await next()
 })
 
-if (process.env.GGB_ENV === 'DEV') {
-    webpack(app)
-}
+// if (process.env.GGB_ENV === 'DEV') {
+//     webpack(app)
+// }
 
 // 错误处理
 app.use(async (ctx, next) => {
