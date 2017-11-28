@@ -3,7 +3,6 @@
 
 const path = require('path')
 const webpack = require('webpack')
-const bowerWebpackPlugin = require('bower-webpack-plugin')
 
 module.exports = {
     // devtool: 'eval-source-map',
