@@ -3,7 +3,7 @@
 
 const webpack = require('webpack')
 const {devMiddleware, hotMiddleware} = require('koa-webpack-middleware')
-const config = require('./webpack.config')
+const config = require('./webpack.config.dev')
 // const compile = webpack(config)
 
 module.exports = (app) => {
